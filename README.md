@@ -2,6 +2,9 @@ bro pake dengan server sendiri dan lab dan dll gw gk nanggung permasalahan lu br
 Use it with an isolated lab or your own server, the mistakes you make with this tool are not my fault, use it wisely for server testing
 
 langkah langkah untuk menjalankan nya
-1 baca file baca dengan command "cat ~/baca"
-2 setelah paham jalankan file setup.py dengan perintah yg di file baca
-3 jalankan file main.py (hanya di linux)
+liat di file readme
+dan jangan lupa pas mw di setup pake venv 
+perintah nya
+1 python3 -m venv venv
+2 source venv/bin/activate
+3 di pip command pip install --upgrade pip
